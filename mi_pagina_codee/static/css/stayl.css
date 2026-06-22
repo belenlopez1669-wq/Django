@@ -1,0 +1,143 @@
+/* Nuevas reglas globales para controlar la altura total de forma limpia */
+html, body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* CORREGIDO: 100vh en vez de 300vh para que ocupe la pantalla justa */
+    font-family: Arial, sans-serif;
+}
+
+/* 1. Contenedor principal: Alinea el sidebar y el contenido uno al lado del otro */
+.container {
+    display: flex;
+    flex: 1; /* Empuja el footer hacia abajo de forma natural */
+}
+
+/* 2. Estilos para tu Sidebar con COLOR */
+.sidebar {
+    background-color: #ffffff; 
+    color: #2c5185;            
+    width: 260px;              
+    padding: 25px;             
+    box-sizing: border-box;    
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 22px;
+    border-bottom: 1px solid #070f3f; 
+    padding-bottom: 10px;
+}
+
+/* 3. Estilos de los botones del menú */
+.botones-container {
+    display: flex;
+    flex-direction: column;    
+    gap: 12px;                 
+    margin-top: 20px;
+}
+
+.boton-nav, .boton-manual {
+    background-color: #b8caf0; 
+    color: #000000;    
+    border: none;
+    padding: 12px;
+    border-radius: 6px;        
+    font-size: 15px;
+    cursor: pointer;
+    text-align: left;          
+    transition: background-color 0.2s ease;
+}
+
+/* Efecto visual al pasar el cursor sobre los botones */
+.boton-nav:hover, .boton-manual:hover {
+    background-color: #3b82f6; 
+}
+
+/* 4. Espaciado del contenido de la derecha */
+.contenido {
+    flex: 1;                   
+    padding: 30px;
+    background-color: #EEEEEE; /* El fondo gris original */
+}
+
+/* El nuevo contenedor azul con propiedades de posicionamiento */
+.contenedor-azul {
+    background-color: #92B5D0; 
+    min-height: 70vh;          /* CORREGIDO: 70vh le da una excelente altura sin romper la pantalla */
+    padding: 30px;
+    border-radius: 8px;        
+    position: relative;        /* Obligatorio para la marca de agua */
+    overflow: hidden;          /* Evita que el logo se salga de los límites */
+    box-sizing: border-box;
+}
+
+/* El logo semitransparente posicionado sobre el contenedor azul (Marca de agua) */
+.contenedor-azul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Imagen del logo en la carpeta static */
+    background-image: url('../icono6.png'); 
+    background-repeat: no-repeat;
+    background-position: right -20% center; 
+    background-size: 45%;                   
+    
+    opacity: 0.25;                         
+    pointer-events: none;                  
+    z-index: 0;                            
+}
+
+/* 5. Estilos para el texto (AGRUPADO Y CORREGIDO) */
+.seccion-texto {
+    margin-top: 25px;
+    color: #2d1b2d; 
+    position: relative;
+    z-index: 1; /* Capa por encima del logo de fondo */
+}
+
+.seccion-texto h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.seccion-texto h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+}
+
+.seccion-texto p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 5px 0;
+}
+
+/* Estilos para controlar el tamaño de tus imágenes */
+.seccion-imagenes {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-start; 
+}
+
+.imagen-adaptable {
+    max-width: 30%;       
+    height: auto;          
+    border-radius: 10px;    
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+}
+
+/* 6. Pie de página arreglado y estable */
+.mi-pie-pagina {
+    background-color: #3D6794; 
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto; /* Empuja el footer al final si el contenido es corto */
+}

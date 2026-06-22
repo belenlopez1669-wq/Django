@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.G.E - Docentes</title>
+    <link rel="stylesheet" href="{% static 'css/docentes.css' %}"> 
+    <script src="{% static 'scrips.js' %}"></script> 
+    <link rel="icon" href="{% static 'icono6.png' %}" type="image/png">
+</head>
+<body>
+    <div class="encabezado-superior">
+        <h1 class="texto-tachado">
+            <img src="{% static 'icono6.png' %}" alt="Icono" class="logo-cabecera" style="max-width: 3%;">
+            DOCENTES
+        </h1>
+        <p class="subtitulo-tachado"></p>
+    </div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="botones-container">
+                <a href="{% url 'inicio' %}" style="text-decoration: none; display: block;">
+                    <button class="boton-nav" id="btnNavi">INICIO</button>
+                </a>
+            </div>
+            <div class="botones-container">
+                <a href="{% url 'ver_materias' %}" style="text-decoration: none; display: block;">
+                    <button class="boton-manual">MATERIAS</button>
+                </a>
+            </div>
+            <div class="botones-container">
+                <a href="{% url 'horarios' %}" style="text-decoration: none; display: block;">
+                    <button class="boton-manual">HORARIOS</button>
+                </a>
+            </div>
+            <div class="botones-container">
+                <a href="{% url 'ver_configuracion' %}" style="text-decoration: none; display: block;">
+                    <button class="boton-manual">CONFIGURACIÓN</button>
+                </a>
+            </div>
+        </aside>
+
+        <main class="contenido">
+            <div class="contenedor-azul">
+                <div class="patron-ubic" id="patronTexto"></div>
+
+                <div class="seccion-texto">
+                    <a href="{% url 'registrar' %}" style="text-decoration: none; display: block;">
+                        <button class="boton-manual">REGISTRO</button>
+                    </a>       
+                    <a href="{% url 'login' %}" style="text-decoration: none; display: block;">
+                        <button class="boton-manual">INICIAR SESIÓN</button>
+                    </a> 
+                    <a href="{% url 'logout' %}" style="text-decoration: none; display: block;">
+                        <button class="boton-manual">SALIR DE LA CUENTA</button>
+                    </a>
+                </div>
+            </div> 
+        </main> 
+    </div> 
+
+    <footer class="mi-pie-pagina">
+        <p>© 2026 - Módulo 4 - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>

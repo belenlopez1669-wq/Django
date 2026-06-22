@@ -1,0 +1,147 @@
+/* Nuevas reglas globales para controlar la altura total */
+html, body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 300vh;
+}
+
+/* 1. Contenedor principal: Alinea el sidebar y el contenido uno al lado del otro */
+.container {
+    display: flex;
+    flex: 1; /* Empuja el footer hacia abajo de forma natural */
+}
+
+/* 2. Estilos para tu Sidebar con COLOR */
+.sidebar {
+    background-color: #ffffff; 
+    color: #2c5185;            
+    width: 260px;              
+    padding: 25px;             
+    box-sizing: border-box;    
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 22px;
+    border-bottom: 1px solid #070f3f; 
+    padding-bottom: 10px;
+}
+
+/* 3. Estilos de los botones del menú */
+.botones-container {
+    display: flex;
+    flex-direction: column;    
+    gap: 12px;                 
+    margin-top: 20px;
+}
+
+.boton-nav, .boton-manual {
+    background-color: #b8caf0; 
+    color: #000000;    
+    border: none;
+    padding: 12px;
+    border-radius: 6px;        
+    font-size: 15px;
+    cursor: pointer;
+    text-align: left;          
+    transition: background-color 0.2s ease;
+}
+
+/* Efecto visual al pasar el cursor sobre los botones (Corregido :hover) */
+.boton-nav:hover, .boton-manual:hover {
+    background-color: #3b82f6; 
+}
+
+/* 4. Espaciado del contenido de la derecha */
+.contenido {
+    flex: 1;                   
+    padding: 30px;
+    background-color: #EEEEEE; 
+}
+
+/* Estilos para el texto nuevo en la zona verde */
+.seccion-texto {
+    margin-top: 25px;
+    color: #2d1b2d; 
+}
+
+.seccion-texto h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.seccion-texto p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Estilos para controlar el tamaño de tus imágenes */
+.seccion-imagenes {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-start; 
+}
+
+.imagen-adaptable {
+    max-width: 30%;       
+    height: auto;          
+    border-radius: 10px;    
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+}
+
+/* 5. Pie de página arreglado y estable */
+.mi-pie-pagina {
+    background-color: #3D6794; 
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 4. Espaciado del contenido de la derecha */
+.contenido {
+    flex: 1;                   
+    padding: 30px;
+    background-color: #EEEEEE; /* El fondo gris original que rodea al contenedor azul */
+}
+
+/* El nuevo contenedor con el color exacto y propiedades de posicionamiento */
+.contenedor-azul {
+    background-color: #92B5D0; /* Tu color personalizado */
+    min-height: 300vh;          /* Asegura que el contenedor azul sea alto y cubra espacio */
+    padding: 30px;
+    border-radius: 8px;        /* Opcional: una leve curvatura en las esquinas si lo deseas */
+    position: relative;        /* Obligatorio para que el logo se posicione aquí dentro */
+    overflow: hidden;          /* Evita que el logo se salga de los límites */
+}
+
+/* El logo semitransparente posicionado sobre el contenedor azul */
+.contenedor-azul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Imagen del logo */
+    background-image: url('../icono6.png'); 
+    background-repeat: no-repeat;
+    background-position: right -20% center; /* Alineado a la derecha, centrado verticalmente */
+    background-size: 45%;                  /* Tamaño del logo en el fondo */
+    
+    opacity: 0.25;                         /* Opacidad de la marca de agua (ajustable) */
+    pointer-events: none;                  /* Permite hacer clic a través del logo sin molestar */
+    z-index: 0;                            /* Se mantiene por detrás del texto */
+}
+
+/* Garantiza que el texto se mantenga nítido arriba de la marca de agua */
+.seccion-texto {
+    margin-top: 25px;
+    color: #2d1b2d; 
+    position: relative;
+    z-index: 1; /* Capa por encima del logo de fondo */
+}
